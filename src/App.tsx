@@ -1,12 +1,4 @@
-import {
-  For,
-  Show,
-  createEffect,
-  createResource,
-  createSignal,
-} from "solid-js";
-import solidLogo from "./assets/solid.svg";
-import viteLogo from "/vite.svg";
+import { For, Show, createEffect, createSignal } from "solid-js";
 import "./App.css";
 import { CompleteIcon, IncompleteIcon } from "./components/icons";
 import { db } from "./firebase";
@@ -15,9 +7,7 @@ import {
   collection,
   deleteDoc,
   doc,
-  getDoc,
   onSnapshot,
-  setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { AiFillDelete } from "solid-icons/ai";
@@ -86,7 +76,7 @@ function Item(item: Item) {
 
 function App() {
   const [items, setItems] = createSignal<Item[]>([]);
-  const [filter, setFilter] = createSignal<ItemFilter>("all");
+  const [filter] = createSignal<ItemFilter>("all");
   const [amount, setAmount] = createSignal(1);
   let inputRef!: HTMLInputElement;
 
